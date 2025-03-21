@@ -1,0 +1,66 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Lista de Produtos{% endblock %}
+
+{% block conteudo %}
+    <main>
+
+        <div class="container5">
+            <!-- Formulário de Adição de Produto -->
+            <section class="adicionar-produto">
+                <h1>Adicionar Produto</h1>
+                <form action="{% url 'adicionar_produto' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="productName">Nome do Produto:</label>
+                    <input type="text" name="productName" required>
+                    
+                    <label for="productPrice">Preço:</label>
+                    <input type="number" name="productPrice" step="0.01" required>
+                    
+                    <label for="productDescription">Descrição:</label>
+                    <textarea name="productDescription" required></textarea>
+                    
+                    <label for="productImage">Imagem:</label>
+                    <input type="file" name="productImage" accept="image/*" required>
+                    
+                    <button type="submit">Adicionar Produto</button>
+                </form>
+            </section>
+        </div>
+        <div class="container52">
+            <h1>Produtos Cadastrados</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Descrição</th>
+                        <th>Imagem</th>  <!-- Coluna para a imagem -->
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                        <tr>
+                            <td>{{ produto.nome }}</td>
+                            <td>{{ produto.preco }}</td>
+                            <td>{{ produto.descricao }}</td>
+                            <td>
+                                {% if produto.imagem %}
+                                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="100">  <!-- Exibe a imagem -->
+                                {% else %}
+                                    <span>Sem imagem</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'editar_produto' produto.id %}">Editar</a>
+                                <a href="{% url 'excluir_produto' produto.id %}" onclick="return confirm('Tem certeza de que deseja excluir?');">Excluir</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}

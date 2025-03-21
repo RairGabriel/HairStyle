@@ -1,0 +1,24 @@
+{% load static %}
+<header id="header2">
+    <div class="container2">
+    
+        <div class="flex">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'listar_produto' %}">Adcionar Produtos</a></li>
+                    <li><a href="{% url 'adm_comentarios' %}">Feedbacks</a></li>
+                    <li><a href="{% url 'adm_agendamentos' %}">Agendadas</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'listar_estoque' %}">Estoque</a></li>
+
+                    <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+                </ul>
+            </nav>
+            <button id="mudar-tema" class="theme-toggle">
+                <img id="theme-icon" src="{% static 'img/Icon/lua.png' %}" alt="Tema">
+            </button>
+                          
+        </div>
+    </div>
+</header>

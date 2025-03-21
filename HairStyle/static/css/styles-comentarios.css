@@ -1,0 +1,215 @@
+/* Reset de estilo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definir a altura do html */
+html {
+    height: 100%;
+}
+
+/* Estilos gerais do corpo */
+body {
+    font-family: sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+}
+
+/* Para garantir que o conteúdo entre header e footer tenha o espaço necessário */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow: auto; /* Permite rolar o conteúdo, se necessário */
+}
+
+/* Contêiner geral */
+.container {
+    max-width: 1280px;
+    margin: auto;
+}
+
+/* ------------------- Layout dos Comentários e Formulário ------------------- */
+
+/* Contêiner que envolve tanto o formulário quanto os comentários */
+.comentario-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espaçamento entre os elementos */
+    flex-wrap: wrap;
+}
+
+/* Formulário de comentário */
+.formulario {
+    width: 48%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Comentários */
+.comentarios {
+    width: 48%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+}
+
+/* Estilo para os depoimentos */
+.depoimentos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Estilo individual para cada comentário */
+.depoimento {
+    border: 2px solid #0d086b;
+    background-color: #e4e9ffdb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 300px;
+}
+
+/* Títulos do formulário */
+#comentario-form h2 {
+    font-size: 25px;
+    width: 100%;
+}
+
+/* Estilos para o formulário */
+#comentario-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+#comentario-form label {
+    color: #4a4a4a;
+}
+
+#comentario-form input,
+#comentario-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+#comentario-form textarea {
+    padding: 15px;
+    height: 150px;
+    resize: vertical;
+}
+
+#comentario-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#comentario-form button {
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+#comentario-form button:hover {
+    background-color: #7812d1;
+}
+
+/* ------------------- Responsividade ------------------- */
+
+/* Para telas menores, ajustamos os itens para ficarem em coluna */
+@media (max-width: 768px) {
+    .comentario-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .formulario, .comentarios {
+        width: 100%;
+    }
+}
+
+/* -------------------DARK MODE------------------- */
+.modo-escuro  {
+    background-color: #000000;
+    color: #fff;
+}
+.modo-escuro h1::after {
+    content: "";
+    display: block;
+    width: 200px; 
+    height: 50px; 
+    background-image: url('../img/Logotipo/brilho-br.png') !important;
+    background-size: cover;
+    background-position: center;
+    margin: -15px auto 0;
+}
+.modo-escuro .footer-content p{
+    color :#fff !important;
+}
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.theme-toggle img {
+    width: 30px;
+    height: 30px;
+}
+.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+/* -------------------FOOTER------------------- */
+#footer {
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    color: #ffffff;
+    padding: 10px 0; 
+}
+.footer-content {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+}
+.footer-col {
+    flex: 1; 
+    text-align: center; 
+}
+#footer-logo {
+    max-width: 180px;
+}
+.footer-col p {
+    font-size: 15px;
+    font-family: sans-serif;
+    margin: 5px 0; 
+}

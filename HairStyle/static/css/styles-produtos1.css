@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Garante que o HTML e o Body ocupem 100% da altura */
+    display: flex; /* Faz com que o body se comporte como um flex container */
+    flex-direction: column; /* Organiza os elementos em coluna */
+}
+
+.content {
+    flex: 1; /* Faz o conteúdo ocupar o espaço disponível */
+    padding-bottom: 50px; /* Garante que o footer não sobreponha o conteúdo */
+}
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+}
+
+
+/* -------------------PRODUTOS------------------- */
+.produtos {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 110px;
+}
+
+.produtos h1 {
+    font-family: 'Serifada', serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3em;
+    color: #222222; /* Cor escura */
+}
+
+.produtos h1::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 50px;
+    background-image: url('../img/Logotipo/brilho.png');
+    background-size: cover;
+    background-position: center;
+    margin: -15px auto 0;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filtros .btn-filtro {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background: linear-gradient(135deg, #222222, #444444); /* Cor escura para o botão */
+    color: #fff;
+    cursor: pointer;
+}
+
+.filtros .btn-filtro:hover {
+    background-color: #3e1eb2; /* Azul escuro para hover */
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.produto-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.produto-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.produto-card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333; /* Cor escura para o título */
+}
+
+.produto-card p {
+    margin: 8px;
+    flex-grow: 1; 
+}
+
+.produto-card .description {
+    margin: 10px;
+}
+
+.produto-card .bnt-produto {
+    background: linear-gradient(135deg, #222222, #444444); /* Cor escura para o botão */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.produto-card .bnt-produto:hover {
+    background-color: #c39c6d; /* Cor dourada para hover */
+}
+

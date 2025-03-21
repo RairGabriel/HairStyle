@@ -1,0 +1,75 @@
+/* Reset de margens e paddings para evitar espaçamentos indesejados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilização geral */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
+header {
+    width: 100%;
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+#logo {
+    max-width: 150px;
+    height: auto;
+}
+
+
+/* Footer */
+#footer2 {
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    color: #ffffff; /* Texto branco para contraste */
+    padding: 20px 0; /* Menos espaço em cima e embaixo */
+    text-align: center;
+}
+
+.container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer-col2 {
+    flex: 1;
+    min-width: 200px; /* Reduzido para uma largura menor */
+    margin: 5px; /* Menos margem entre as colunas */
+}
+
+#footer-logo {
+    width: 120px; /* Reduzido o tamanho do logo */
+    height: auto;
+}
+
+.footer-col2 p {
+    margin: 3px 0; /* Menos espaço entre os parágrafos */
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-content2 {
+        flex-direction: column;
+        text-align: center;
+    }
+}

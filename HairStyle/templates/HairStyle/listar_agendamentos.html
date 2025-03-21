@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+
+{% block conteudo %}
+
+    <section class="agenda">
+        <div class="container">
+            <h1>Meus Agendamentos</h1>
+            <div id="agendamentos-container">
+                {% for agendamento in agendamentos %}
+                    <div class="agendamento">
+                        <h2>{{ agendamento.nome }}</h2>
+                        <p><strong>Serviço:</strong> {{ agendamento.servico }}</p>
+                        <p><strong>Profissional:</strong> {{ agendamento.profissional }}</p>
+                        <p><strong>Data:</strong> {{ agendamento.data }}</p>
+                        <p><strong>Hora:</strong> {{ agendamento.hora }}</p>
+                        {% if agendamento.mensagem %}
+                            <p><strong>Mensagem:</strong> {{ agendamento.mensagem }}</p>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <p>Você ainda não tem agendamentos.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock conteudo %}
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+{% block conteudo %}
+
+    <!-- Barra de navegação -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'listar_estoque' %}">Listar Estoque</a></li>
+            <li><a href="{% url 'adicionar_item' %}">Adicionar Item</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+{% endblock conteudo %}
+</body>
+</html>

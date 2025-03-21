@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% include 'modelos/head.html' %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    {% include 'modelos/header.html' %}
+    
+
+    <div style="margin-left: 10px;">
+        <h1>{% block titulo %}{% endblock titulo %}</h1>
+
+        {% include "modelos/mensagens.html" %}
+
+        {% block conteudo %}{% endblock conteudo %}
+    </div>
+
+    
+    <script src="{% static 'js/modo_escuro.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
+    <script src="{% static 'js/agendamento.js' %}"></script>
+    <script src="{% static 'js/comentarios.js' %}"></script>
+{% include "modelos/footer.html" %}
+</body>
+
+</html>

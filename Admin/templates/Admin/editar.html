@@ -1,0 +1,34 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+{% block conteudo %}
+<hr>
+<br>
+<h2>Editar Item do Estoque</h2>
+<div class="container5">
+<form method="POST">
+    {% csrf_token %}
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" value="{{ item.nome }}" required><br>
+    
+    <label for="descricao">Descrição:</label>
+    <textarea name="descricao" required>{{ item.descricao }}</textarea><br>
+    
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" name="quantidade" value="{{ item.quantidade }}" required><br>
+    
+    <label for="preco">Preço:</label>
+    <input type="number" name="preco" step="0.01" value="{{ item.preco }}" required><br>
+    
+    <button type="submit">Salvar Alterações</button>
+</form>
+</div>
+<hr> 
+{% endblock conteudo %}
+</body>
+</html>

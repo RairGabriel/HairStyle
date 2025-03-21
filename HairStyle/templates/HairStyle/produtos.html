@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+
+{% block conteudo %}
+    
+<main>
+    <div class="container">
+       
+        <div class="products-container">
+            {% for produto in produtos %}
+                <div class="produto-card {% if produto.categoria %}{{ produto.categoria }}{% endif %}">
+                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                    <h2>{{ produto.nome }}</h2>
+                    <p>Preço: R$ {{ produto.preco }}</p>
+                    <p>{{ produto.descricao }}</p>
+                    <a href="https://web.whatsapp.com/"><button class="bnt-produto">Comprar</button></a>
+                </div>
+            {% empty %}
+                <p>Não há produtos disponíveis no momento.</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+        
+        
+{% endblock conteudo %}
+    
+</body>
+</html>

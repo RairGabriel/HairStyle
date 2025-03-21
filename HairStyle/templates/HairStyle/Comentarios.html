@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+
+{% block conteudo %}
+    <br>
+    <br>
+    <hr>
+
+    <div class="comentario-container">
+        <!-- Formulário de comentário -->
+        <div class="formulario">
+            <form action="{% url 'comentarios_enviar' %}" id="comentario-form" method="POST">
+                {% csrf_token %}
+                <h2>Deixe seu Comentário</h2>
+                <h3>Seu feedback é importante, compartilhe sua experiência conosco!</h3>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <label for="comentario">Comentário:</label>
+                <textarea id="comentario" name="comentario" rows="4" required></textarea>
+                <button type="submit">Enviar Comentário</button><br>
+            </form>
+        </div>
+
+        <!-- Lista de comentários -->
+        <div class="comentarios">
+            <h1>Comentários</h1>
+            <div class="depoimentos">
+                {% for comentario in comentarios %}
+                    <div class="comentario">
+                        <p><strong>{{ comentario.nome }}</strong> - {{ comentario.data_criacao }}</p>
+                        <p>{{ comentario.comentario }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <hr>
+{% endblock conteudo %}
+</body>
+</html>

@@ -1,0 +1,593 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    font-family: sans-serif;
+    color: #fffcfc;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1280px;
+    margin: auto;
+}
+.flex {
+    display: flex; 
+    align-items: end; 
+    justify-content: flex-end;
+}   
+
+.flex2 {
+    flex-grow: 1;
+    position: absolute;
+}   
+/* -------------------HEADER------------------- */
+/* -------------------HEADER------------------- */
+header {
+    width: 100%;
+    padding: 20px 4%;
+    position: fixed;
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    top: 0;
+    left: 0;
+    transition: 1s;
+    z-index: 1000;
+}
+header.rolagem {
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    padding: 10px 4%;
+}
+header.rolagem a, header.rolagem ul li a {
+    color: #111111;
+}
+header img {
+    width: 170px; 
+    height: auto; 
+    max-height: 70px; 
+    margin-right: 40px;
+}
+header.rolagem img {
+    display: none;
+}
+header i {
+    font-size: 30px;
+    color: #fff;
+}
+header ul {
+    list-style-type: none;
+}
+header ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+header ul li a {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 17px;
+    font-family: sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+header ul li a:hover {
+    color: black;
+}
+main {
+    margin-top: 80px;
+    padding: 20px;
+}
+#theme-icon-sair img{
+    width: 30px;
+    height: 30px;
+    margin: 0;
+}
+#theme-icon-sair:hover img{
+    content : url('../img/Icon/sair.png');
+   }
+/* -------------------BANNER------------------- */
+.banner {
+    height: 100vh;
+    background-image: url('../img/planofundo.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+/* Efeito para o título h1 */
+.banner h1 {
+    font-family: Georgia, serif;
+    font-size: 4em;
+    color: #fff;
+    margin-bottom: 20px;
+    opacity: 0; /* Inicia invisível */
+    transform: translateX(-100px); /* Começa deslocado para a esquerda */
+    transition: opacity 1s ease, transform 1s ease; /* Transição de opacidade e movimento */
+}
+
+.banner h1.visible {
+    opacity: 1; /* Fica visível quando a classe 'visible' for adicionada */
+    transform: translateX(0); /* Move para a posição original */
+}
+
+/* Efeito para os botões */
+.banner-content button {
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0; /* Inicia invisível */
+    transform: translateX(-100px); /* Começa deslocado para a esquerda */
+    transition: opacity 1s ease, transform 1s ease; /* Transição de opacidade e movimento */
+}
+
+.banner-content button.visible {
+    opacity: 1; /* Fica visível quando a classe 'visible' for adicionada */
+    transform: translateX(0); /* Move para a posição original */
+}
+
+.banner-content button:hover {
+    background-color: #0d086b;
+}
+
+/* -------------------ICON WHATSAPP------------------- */
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    z-index: 9999;
+}
+.whatsapp-icon img {
+    width:60px;
+    height: auto;
+}
+/* -------------------ICON WHATSAPP------------------- */
+.instagram-icon {
+    position: fixed;
+    bottom: 65px;
+    right: 22px; 
+    z-index: 9999;
+}
+.instagram-icon img {
+    width:54px;
+    height: auto;
+}
+/* -------------------SOBRE - HOME------------------- */
+/* -------------------SOBRE - HOME------------------- */
+.about {
+    padding: 60px 0;
+}
+
+/* Container da seção 'about' */
+.about .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Contêiner da seção 'about-content' */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateX(-100px); /* Começa deslocada para a esquerda */
+    transition: opacity 1s ease, transform 1s ease; /* Transição suave */
+}
+
+/* Estilo da imagem */
+.about-content img {
+    width: 500px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Estilo do texto */
+.about-content .text {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    color: #000;
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-content p {
+    font-size: 1.2em;
+    color: #240fae;
+    text-align: center;
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+/* Quando a classe 'visible' for adicionada, a imagem e o texto aparecerão */
+.about-content.visible {
+    opacity: 1; /* Torna os elementos visíveis */
+    transform: translateX(0); /* Move para a posição original */
+}
+
+/* -------------------SERVICOS HOME------------------- */
+#servicos {
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 20px; /* Reduzir a margem inferior */
+}
+
+
+#servicos h1, #servicos h2 {
+    color: #000;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Começa deslocado para baixo */
+    transition: opacity 1s, transform 0.3s;
+    margin: 0; /* Remove margens para centralização exata */
+}
+
+#servicos h1.visible, #servicos h2.visible {
+    opacity: 1; /* Torna o título visível */
+    transform: translateY(0); /* Move o título para sua posição original */
+}
+
+#servicos .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+}
+
+#servicos .card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(143, 121, 121, 0.1);
+    border: 2px solid #0d086b;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    transition: transform 0.3s, opacity 1s;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Começa deslocado para baixo */
+}
+
+#servicos .card.visible {
+    opacity: 1; /* Torna a carta visível */
+    transform: translateY(0); /* Move a carta para sua posição original */
+}
+
+#servicos .card:hover {
+    transform: scale(1.05);
+}
+
+#servicos .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+#servicos .card h2 {
+    margin-top: 10px;
+    color: #07096c;
+}
+
+#servicos .card p {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    color: #3d3966;
+}
+
+#servicos button {
+    background: linear-gradient(135deg, #111cec, #981ce1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+}
+
+#servicos button:hover {
+    background-color: #4d81fcb4;
+}
+
+#servicos .agendamento {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+/* -------------------GALERIA HOME------------------- */
+.galeria {
+    padding: 60px 0;
+    background-color: #fdfdfd; /* Cor de fundo para destacar as imagens */
+}
+
+.galeria .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre as imagens */
+}
+
+.galeria .container h2 {
+    margin: 0;
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* Estilo para as imagens da galeria */
+.img_galeria {
+    opacity: 0; /* Imagens começam invisíveis */
+    transform: translateY(50px); /* Imagens começam ligeiramente abaixo */
+    transition: opacity 1s ease, transform 1s ease; /* Transição suave */
+}
+
+.img_galeria.visible {
+    opacity: 1; /* Quando a classe 'visible' for adicionada, a imagem ficará visível */
+    transform: translateY(0); /* A imagem se move para sua posição original */
+}
+
+.img_galeria img {
+    width: 200px;
+    height: 450px;
+    object-fit: cover; /* Garantir que a imagem preencha o espaço sem distorcer */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+/* Efeito de zoom ao passar o mouse */
+.img_galeria img:hover {
+    transform: scale(1.1) rotate(5deg); /* Aumenta e gira a imagem */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Sombra mais intensa ao dar zoom */
+}
+
+
+
+
+/* -------------------EQUIPE HOME------------------- */
+.equipe {
+    padding-top: 10px; /* Diminuir o padding superior */
+    padding-bottom: 10px;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 0; /* Remover margem superior */
+}
+
+
+/* Título da equipe */
+.equipe h1 {
+    color: #000;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Começa deslocado para baixo */
+    transition: opacity 1s, transform 0.5s;
+}
+
+/* Cartões da equipe */
+.equipe-card {
+    margin: 20px;
+    padding: 20px;
+    width: 250px;
+    border: 2px solid #0d086b;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Começa deslocado para baixo */
+    transition: opacity 1s, transform 0.5s;
+}
+
+/* Container para os cartões */
+.equipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Imagem do membro da equipe */
+.equipe-image {
+    width: 118px;
+    height: 118px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 auto 20px;
+    overflow: hidden; 
+}
+
+.equipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; 
+}
+
+.equipe-title {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.equipe-subtitle {
+    color: #0c05db;
+    margin-bottom: 10px;
+}
+
+.equipe-bio {
+    margin-bottom: 15px;
+}
+
+/* Classes para tornar visível */
+.equipe h1.visible, .equipe-card.visible {
+    opacity: 1;
+    transform: translateY(0); /* Mover para a posição original */
+}
+
+
+/* -------------------DARK MODE------------------- */
+.modo-escuro  {
+    background-color: #000000 !important; 
+    color: #fff !important; 
+    
+  }
+.modo-escuro p {
+    color: #efefef !important;
+}
+.modo-escuro .popup-agendamento {
+    background-color: #000000 !important; 
+    color: #fff !important;  
+}
+.modo-escuro .footer-content p{
+    color :#fff !important;
+}
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.theme-toggle img {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+}
+.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Aplica o modo escuro na galeria */
+.modo-escuro .galeria {
+    background-color: #121212 !important; /* Fundo escuro */
+}
+
+.modo-escuro .img_galeria img {
+    filter: brightness(0.8) contrast(1.2); /* Escurece as imagens para combinar com o tema */
+    transition: filter 0.3s ease;
+}
+
+.modo-escuro .img_galeria img:hover {
+    filter: brightness(1); /* Restaura o brilho ao passar o mouse */
+}
+
+/* -------------------FOOTER------------------- */
+#footer {
+    background: linear-gradient(135deg, #07093e, #3e065f);
+    color: #ffffff;
+    padding: 10px 0; 
+}
+.footer-content {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+}
+.footer-col {
+    flex: 1; 
+    text-align: center; 
+}
+#footer-logo {
+    max-width: 180px;
+}
+.footer-col p {
+    font-size: 15px;
+    font-family: sans-serif;
+    margin: 5px 0; 
+}
+/* -------------------MARCAR HORARIO------------------- */
+.popup-agendamento {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 650px;
+    max-height: 650px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+  }
+.header-agendamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0px;
+  }
+.header-agendamento .title-agendamento {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+.header-agendamento .close-agendamento {
+    font-size: 1em;
+    cursor: pointer;
+    color: #ccc;
+  }
+.content-agendamento {
+    margin-bottom: 0px;
+  }
+.content-agendamento label {
+    font-weight: bold;
+    color: #333;
+  }
+.content-agendamento input,
+.content-agendamento select,
+.content-agendamento textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.content-agendamento button[type="submit"] {
+background: linear-gradient(135deg, #111cec, #981ce1);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.content-agendamento button[type="submit"]:hover {
+    background: linear-gradient(135deg, #111cec, #981ce1);
+}
+#profissional option::after {
+    content: attr(data-descricao);
+    display: block;
+    font-size: 0.9em; 
+    color: #555; 
+}
+  #profissional-info {
+    font-size: 0.9em; 
+    color: #555; 
+    margin-top: 0px;
+}

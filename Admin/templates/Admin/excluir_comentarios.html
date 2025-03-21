@@ -1,0 +1,34 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Excluir Comentários{% endblock title %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+
+{% block conteudo %}
+<main>
+    <div class="containerc">
+        <h1>Excluir Comentários</h1>
+
+        <div class="depoimentos2">
+            {% for comentario in comentarios %}
+                <div class="comentario">
+                    <p><strong>{{ comentario.nome }}</strong> - {{ comentario.data_criacao }}</p>
+                    <p>{{ comentario.comentario }}</p>
+
+                    <!-- Formulário para excluir o comentário -->
+                    <form method="POST" action="{% url 'excluir_comentarios' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="delete_comentario" value="{{ comentario.id }}">
+                        <button type="submit" class="delete-button">Excluir</button>
+                    </form>
+                </div>
+            {% empty %}
+                <p>Nenhum comentário disponível.</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock conteudo %}

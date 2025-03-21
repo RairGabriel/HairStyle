@@ -1,0 +1,63 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+{% block conteudo %}
+
+    
+    
+    <hr> <br><br>
+    <h1>Dashboard de Agendamentos</h1>
+
+    <h2>📊 Serviços Mais Agendados</h2>
+    <table border="1">
+        <tr>
+            <th>Serviço</th>
+            <th>Total de Agendamentos</th>
+        </tr>
+        {% for servico in servicos_mais_agendados %}
+        <tr>
+            <td>{{ servico.servico }}</td>
+            <td>{{ servico.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>💰 Faturamento Total</h2>
+    <p>R$ {{ faturamento_total }}</p>
+    <p>R$ {{ faturamento_total|floatformat:2 }}</p>
+
+
+    <h2>📈 Gráfico dos Serviços Mais Agendados</h2>
+    <canvas id="graficoServicos"></canvas>
+
+    <script>
+        var ctx = document.getElementById('graficoServicos').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for servico in servicos_mais_agendados %}"{{ servico.servico }}",{% endfor %}],
+                datasets: [{
+                    label: 'Total de Agendamentos',
+                    data: [{% for servico in servicos_mais_agendados %}{{ servico.total }},{% endfor %}],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+
+    
+{% endblock conteudo %}
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+{% block conteudo %}
+    <hr><br><br>
+    <section class="agenda">
+        <div class="container2">
+            <h1>Meus Agendamentos</h1>
+            <div id="agendamentos-container">
+                {% if agendamentos %}
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Serviço</th>
+                                <th>Profissional</th>
+                                <th>Data</th>
+                                <th>Hora</th>
+                                <th>Mensagem</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for agendamento in agendamentos %}
+                                <tr>
+                                    <td>{{ agendamento.nome }}</td>
+                                    <td>{{ agendamento.servico }}</td>
+                                    <td>{{ agendamento.profissional }}</td>
+                                    <td>{{ agendamento.data }}</td>
+                                    <td>{{ agendamento.hora }}</td>
+                                    <td>{% if agendamento.mensagem %}{{ agendamento.mensagem }}{% else %}-{% endif %}</td>
+                                    <td>
+                                        <form action="{% url 'cancelar_agendamento' agendamento.id %}" method="POST" style="display: inline;">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn-cancelar">Cancelar</button>
+                                        </form>
+                                        
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>Você ainda não tem agendamentos.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
+
+    {% endblock conteudo %}
+</body>
+</html>

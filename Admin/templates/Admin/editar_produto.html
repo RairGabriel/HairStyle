@@ -1,0 +1,38 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Editar Produto{% endblock %}
+
+{% block conteudo %}
+    <main>
+        <div class="container5">
+            <h1>Editar Produto</h1>
+            <form action="{% url 'editar_produto' produto.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <label for="productName">Nome do Produto:</label>
+                <input type="text" name="productName" value="{{ produto.nome }}" required>
+
+                <label for="productPrice">Preço:</label>
+                <input type="number" name="productPrice" value="{{ produto.preco }}" step="0.01" required>
+
+                <label for="productDescription">Descrição:</label>
+                <textarea name="productDescription" required>{{ produto.descricao }}</textarea>
+
+                <label for="productImage">Imagem:</label>
+                <!-- Exibe a imagem atual, se existir -->
+                {% if produto.imagem %}
+                    <div>
+                        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="150">
+                        <p>Imagem atual</p>
+                    </div>
+                {% else %}
+                    <p>Sem imagem atual.</p>
+                {% endif %}
+                <input type="file" name="productImage" accept="image/*">
+
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

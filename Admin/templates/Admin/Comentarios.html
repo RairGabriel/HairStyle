@@ -1,0 +1,53 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Comentários{% endblock title %}
+
+{% block head %}
+ 
+  <style>
+      .delete-button {
+          display: inline-block;
+          padding: 10px 15px;
+          background-color:rgb(117, 48, 228);
+          color: white;
+          text-decoration: none;
+          font-size: 16px;
+          border-radius: 5px;
+          text-align: center;
+          font-weight: bold;
+          transition: background 0.3s;
+          border: none;
+          cursor: pointer;
+      }
+      
+      .delete-button:hover {
+          background-color:rgb(116, 43, 233);
+      }
+  </style>
+{% endblock head %}
+
+{% block conteudo %}
+<main>
+    <div class="containerc">
+        <h1>Comentários</h1>
+
+        <!-- Botão para gerenciar exclusão de comentários -->
+        <form method="GET" action="{% url 'excluir_comentarios' %}">
+            <button type="submit" class="delete-button">Gerenciar Exclusão de Comentários</button>
+        </form>
+
+        <!-- Lista de comentários -->
+        <div class="depoimentos2">
+            {% for comentario in comentarios %}
+                <div class="comentario">
+                    <p><strong>{{ comentario.nome }}</strong> - {{ comentario.data_criacao }}</p>
+                    <p>{{ comentario.comentario }}</p>
+                </div>
+            {% empty %}
+                <p>Nenhum comentário disponível.</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock conteudo %}

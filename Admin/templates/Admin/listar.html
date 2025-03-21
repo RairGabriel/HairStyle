@@ -1,0 +1,80 @@
+
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+{% block conteudo %}
+
+<hr><br><br>
+<h2>Lista de Itens no Estoque</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in itens %}
+        <tr>
+            <td>{{ item.nome }}</td>
+            <td>{{ item.descricao }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>{{ item.preco }}</td>
+            <td>
+                
+                <a href="{% url 'editar_item' item.id %}">Editar</a> 
+                <a href="{% url 'excluir_item' item.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'adicionar_item' %}"><button>Adcionar Item</button> </a>
+<style>
+  
+    /* Estilo da tabela */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    /* Estilo do cabeçalho da tabela */
+    thead {
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+    th {
+        padding: 12px;
+        text-align: left;
+        font-size: 16px;
+    }
+
+    /* Estilo das células da tabela */
+    td {
+        padding: 12px;
+        text-align: left;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    /* Estilo das linhas alternadas da tabela */
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    
+</style>    
+{% endblock conteudo %}
+</body>
+</html>

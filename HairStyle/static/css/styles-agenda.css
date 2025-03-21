@@ -1,0 +1,43 @@
+
+/* -------------------AGENDA------------------- */
+.agendamento {
+    margin-top: 100px;
+    border: 1px solid #CED5D3;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #f9f9f9, #f6f6f7);
+    transition: transform 0.3s ease;
+}
+.agendamento:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.agendamento h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+    border-bottom: 2px solid #8b87ff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.agendamento p {
+    margin: 10px 0;
+    color: #444;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+.agendamento p strong {
+    color: #031e6c;
+}
+.agendamento p:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+
+.agenda {
+    flex-grow: 1;
+}
+

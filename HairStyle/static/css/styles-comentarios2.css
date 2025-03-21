@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    font-family: sans-serif;
+    color: #fffafa;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1280px;
+    margin: auto;
+}
+ 
+
+
+/* -------------------INDEX------------------- */
+.depoimentos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.depoimento {
+    border: 2px solid #0d086b;
+    background-color: #e4e9ffdb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 300px;
+}
+.container h1 {
+    margin: 120px;
+    font-family: Serifada;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 3em;
+}
+.container h1::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 50px; 
+    background-image: url('../img/Logotipo/brilho.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    margin: -15px auto 0;
+}
+.depoimento p {
+    text-align: center;
+    line-height: 1.6;
+    color: #0d086b;
+}
+.depoimento .cliente {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #0d086b;
+}
+.depoimento .studio {
+    text-align: center;
+    margin-top: 5px;
+    font-style: italic;
+    color: #000000;
+}
+#comentario-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+#comentario-form h2{
+    font-size: 25px;
+    width: 50%;
+}
+#comentario-form label {
+    color: #4a4a4a;
+}
+#comentario-form input,
+#comentario-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    box-sizing: border-box; 
+    margin-bottom: 15px; 
+    font-family: sans-serif; 
+    font-size: 1rem; 
+}
+#comentario-form textarea {
+    padding: 15px;
+    height: 150px; 
+    resize: vertical; 
+}
+#comentario-form label {
+    font-weight: bold; 
+    margin-bottom: 5px; 
+    display: block; 
+}
+#comentario-form button {
+    background: linear-gradient(135deg, #222222, #3a3a3a); /* Tons de cinza escuro */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    margin-top: 10px; 
+}
+#comentario-form button:hover {
+    background: linear-gradient(135deg, #222222, #3a3a3a); /* Tons de cinza escuro */
+}
+

@@ -1,0 +1,61 @@
+/* Estilos gerais para evitar conflitos */
+.containerc {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Lista de comentários */
+.depoimentos2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilizando cada comentário */
+.comentario {
+    background-color: #fff;
+    border: 2px solid #007bff;  /* Cor da borda azul */
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Nome do autor e data */
+.comentario p:first-child {
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 5px;
+}
+
+/* Texto do comentário */
+.comentario p:last-child {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Estilo para o botão de exclusão */
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}

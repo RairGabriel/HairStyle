@@ -1,0 +1,82 @@
+/* Certifique-se de que as classes ou IDs sejam específicas para evitar conflitos */
+
+.container5 {
+    max-width: 500px;  /* Reduzindo ainda mais a largura do formulário */
+    margin: 0 auto;
+    padding: 15px;  /* Reduzindo o padding */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 2px solid #007bff;  /* Adicionando uma borda azul ao redor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 18px;  /* Reduzindo o tamanho do título */
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;  /* Reduzindo o tamanho da fonte dos labels */
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+    padding: 8px;  /* Reduzindo o padding */
+    margin-bottom: 10px;  /* Reduzindo o espaçamento entre os campos */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;  /* Reduzindo o tamanho da fonte */
+    width: 100%;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;  /* Reduzindo a altura da textarea */
+}
+
+button {
+    padding: 8px 16px;  /* Reduzindo o padding do botão */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;  /* Reduzindo o tamanho da fonte */
+    transition: background-color 0.3s ease;
+    border: 1px solid #0056b3;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Adiciona margens aos campos de formulário */
+form > label, form > input, form > textarea, form > button {
+    margin-bottom: 8px;  /* Reduzindo o espaçamento */
+}
+
+/* Evitar conflitos com outros estilos */
+body .container5 form input[type="text"],
+body .container5 form input[type="number"],
+body .container5 form textarea,
+body .container5 form input[type="file"] {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+body .container5 form button {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HairStyle</title>
+    <link rel="icon" href="img/Logotipo/icon.png" type="image/png">
+    <link rel="stylesheet" href="{% static 'Admin/css/styles-login.css' %}">
+    
+</head>
+<body>
+    <div class="login-container">
+      
+        <h2>Login Administrativo</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn-login">Entrar</button>
+            {% for k, v in form.errors.items %}
+            {{ v }}
+            {% endfor %}
+        </form>
+        
+    </div>
+    
+    
+</body>
+</html>

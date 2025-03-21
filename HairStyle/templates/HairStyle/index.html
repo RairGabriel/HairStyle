@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Postagem {{post.id}} {% endblock title %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'styles-produtos1.css' %}">
+{% endblock head %}
+{% block titulo %} {{post.titulo}} {% endblock titulo %}
+{% block conteudo %}
+<section class="banner">
+        <div class="banner-content">
+            <h1>|Seja Bem-vindo!|</h1>
+            {% if messages %}
+            <div class="messages">
+            {% for message in messages %}
+                <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+                </div>
+            {% endif %}
+            <button class="open-popup-button" id="open-popup-button">AGENDE SEU HORÁRIO</button>
+            <br> <br>
+         
+        </div>
+    </section>
+
+    <div class="popup-agendamento" id="popup-agendamento" style="display: none;">
+        <div class="header-agendamento">
+            <div class="title-agendamento">Agendar Serviço</div>
+            <div class="close-agendamento" id="close-agendamento">&times;</div>
+        </div>
+        <div class="content-agendamento">
+            <form action="{% url 'agendar_servico' %}" id="horario-form" action="#" method="post">
+                {% csrf_token %}
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br>
+
+                <label for="servico">Serviço:</label>
+                <select id="servico" name="servico" required>
+                    <option value="">Selecione o serviço</option>
+                    <option value="CorteSocial" data-valor="20">Corte Social</option>
+                    <option value="CortreDegrade" data-valor="25">Corte Degrade</option>
+                    <option value="Cortreebarba" data-valor="40">Corte e Barba</option>
+                    <option value="Cortrebarbasombracelha" data-valor="50">Corte, Barba e Sobrancelha</option>
+                    <option value="Coloracao" data-valor="100">Coloração</option>
+                </select>
+                <span id="valor-servico"></span><br>
+
+                <label for="profissional">Escolha o profissional:</label>
+                <select id="profissional" name="profissional" required>
+                    <option value="Gabriel Nogueira" data-descricao="Barbeiro">Gabriel Nogueira</option>
+                    <option value="Rair Gabriel Lopes" data-descricao="Barbeiro">Rair Gabriel Lopes</option>
+                    <option value="Ricardo" data-descricao="Barbeiro">Ricardo</option>
+                </select>
+                <div id="profissional-info"></div>
+
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required><br>
+
+                <label for="hora">Horário:</label>
+                <select id="hora" name="hora" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                </select>
+
+                <label for="mensagem">Mensagem (opcional):</label>
+                <textarea id="mensagem" name="mensagem" rows="4" cols="50" placeholder="Deixe sua mensagem"></textarea>
+
+                <button class="open-popup-button" type="submit">Agendar</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <img src="{% static 'img/Logotipo/barbearia2.jpg' %}" alt="Salão de Beleza Masculino">
+                <div class="text">
+                    <h2>Sobre Nós</h2>
+                    <p>O Masculino Hair Style é um salão de beleza dedicado ao público masculino, oferecendo uma experiência única e personalizada para realçar o estilo de cada cliente...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    <section class="servicos">
+        <div class="servicos">
+            <div id="servicos">
+                <h2>Serviços</h2>
+                <div class="container">
+                    <div id="cortes" class="card">
+                        <img src="{% static 'img/Servicos/22.jpg' %}" alt="cortes">
+                        <h2>Cortes</h2>
+                        <p>Corte em geral.</p>
+                        <a href="javascript:void(0);" onclick="openAgendamento('Corte Social')"><button>Agendar</button></a>
+                    </div>
+                    <div id="barba" class="card">
+                        <img src="{% static 'img/Servicos/barba.jpg' %}" alt="barba">
+                        <h2>Barba</h2>
+                        <p>Barbas em geral, cera e lâmina.</p>
+                        <a href="javascript:void(0);" onclick="openAgendamento('Corte e Barba')"><button>Agendar</button></a>
+                    </div>
+                    <div id="colaracao" class="card">
+                        <img src="{% static 'img/Servicos/luzes.jpg' %}" alt="colaracao">
+                        <h2>Colaração</h2>
+                        <p>Luzez, retoque e pigmentação.</p>
+                        <a href="javascript:void(0);" onclick="openAgendamento('Coloração')"><button>Agendar</button></a>
+                    </div>
+                    <div id="mais" class="card">
+                        <img src="{% static 'img/Servicos/156686-x-itens-que-nao-podem-faltar-ao-montar-uma-sala-de-jogos.jpg' %}" alt="bar">
+                        <h2>Bar e Jogos</h2>
+                        <p>Variedade de bebidas e jogos para clientes.</p>
+                        <a href="javascript:void(0);" onclick="openAgendamento('Bar e Jogos')"><button>Agendar</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="galeria" id="galeria">
+        <div class="container">
+            <div class="img_galeria" id="img_galeria">
+                <img src="{% static 'img/fotos/1.jpg' %}" alt="Imagem 1 da galeria">
+                <img src="{% static 'img/fotos/2.jpg' %}" alt="Imagem 2 da galeria">
+                <img src="{% static 'img/fotos/3.jpg' %}" alt="Imagem 3 da galeria">
+                <img src="{% static 'img/fotos/4.jpg' %}" alt="Imagem 4 da galeria">
+                <img src="{% static 'img/fotos/5.jpg' %}" alt="Imagem 5 da galeria">
+                <img src="{% static 'img/fotos/6.jpg' %}" alt="Imagem 6 da galeria">
+                <img src="{% static 'img/fotos/7.jpg' %}" alt="Imagem 7 da galeria">
+                <img src="{% static 'img/fotos/8.jpg' %}" alt="Imagem 8 da galeria">
+                <img src="{% static 'img/fotos/9.jpg' %}" alt="Imagem 9 da galeria">
+                <img src="{% static 'img/fotos/10.jpg' %}" alt="Imagem 10 da galeria">
+                <img src="{% static 'img/fotos/11.webp' %}" alt="Imagem 11 da galeria">
+                <img src="{% static 'img/fotos/12.jpg' %}" alt="Imagem 12 da galeria">
+            </div>
+        </div>
+    </section>
+
+{% endblock conteudo %}
+   
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<header id="header">
+    <div class="container">
+        <div class="flex2">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'img/Logotipo/Logo.min.png' %}" alt="logo" id="logo">
+            </a>
+        </div>
+        <div class="flex">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'produtos' %}">Produtos</a></li>
+                    <li><a href="{% url 'comentarios' %}">Feedbacks</a></li>
+                </ul>
+            </nav>
+            <button id="mudar-tema" class="theme-toggle">
+              <a href="{% url 'login' %}"><img src="{% static 'img/Icon/lua.svg' %}"></a>
+            </button> 
+                       
+        </div>
+    </div>
+</header>
